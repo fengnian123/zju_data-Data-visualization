@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>学生上课情况可视化系统</title>
+  <script src="https://cdn.jsdelivr.net/npm/echarts/dist/echarts.min.js"></script>
+  <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+<input type="checkbox" id="modeSwitch" />
+<label for="modeSwitch">手动输入模式</label>
+<div class="horizontal-line"></div>
+<div class="vertical-line"></div>
+<h2>座位图</h2>
+<div id="seat-container"></div>
+<div id="dialog-container">
+  <h2>请输入当天占座信息</h2>
+</div>
+<div id="day-container">
+  <h2>请选择时间</h2>
+  <div id="weekdayContainer">
+    <label>
+      <input type="radio" name="weekday" value="8:00 ~ 9:35">8:00 ~ 9:35
+    </label>
+    <label>
+      <input type="radio" name="weekday" value="10:00 ~ 12:25">10:00 ~ 12:25
+    </label>
+    <label>
+      <input type="radio" name="weekday" value="13:25 ~ 15:50">13:25 ~ 15:50
+    </label>
+    <label>
+      <input type="radio" name="weekday" value="16:15 ~ 17:50">16:15 ~ 17:50
+    </label>
+    <label>
+      <input type="radio" name="weekday" value="18:50 ~ 21:15">18:50 ~ 21:15
+    </label>
+  </div>
+  <div id="selectedDayContainer">
+    <label for="selectedDay">选择的时间：</label>
+    <input type="text" id="selectedDay" readonly>
+  </div>
+</div>
+<br> <!-- 添加一个换行符 -->
+
+<div id="parentContainer" style="position: relative;">
+  <div id="course-container" style="position: absolute; top: 200px; left: 10px">
+    <h2>请选择课程</h2>
+    <div id="courseSelection">
+      <label>
+        <input type="radio" name="course" value="数学分析">数学分析
+      </label>
+      <label>
+        <input type="radio" name="course" value="线性代数">线性代数
+      </label>
+      <label>
+        <input type="radio" name="course" value="概率论">概率论
+      </label>
+      <!-- 添加更多课程选项 -->
+    </div>
+    <div id="selectedCourseContainer">
+      <label for="selectedCourse">已选择的课程：</label>
+      <input type="text" id="selectedCourse" readonly>
+    </div>
+  </div>
+</div>
+
+
+<!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+<div id="main" style="width: 300px; height: 400px; position: relative; left: 1000px; top: -500px;"></div>
+<script src="js/chart1.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
